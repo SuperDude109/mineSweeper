@@ -1,0 +1,26 @@
+.mine{
+  background-color: bisque;
+  width: 4vh;
+  height: 4vh;
+  text-align: center;
+  border: solid 1px;
+}
+.mine:hover{
+  background-color: brown;
+}
+.blank{
+  background-color: rgba(237, 196, 146, 0.581);
+  width: 4vh;
+  height: 4vh;
+  text-align: center;
+  border: solid 1px;
+}
+.mine-field{
+  background-color: rgb(165, 73, 12);
+  justify-self: center;
+  padding: 2%;
+}
+.field{
+  display: flex;
+  justify-content:center ;
+}
