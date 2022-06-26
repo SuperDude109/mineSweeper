@@ -10,7 +10,7 @@ function Mine({txt,func,test,endGame}) {
       id={test}onClick={()=>spaceRevealed()}
       className={name} 
       data-testid="mine"
-      style={{WebkitTextFillColor:"rgb("+255/(text*2)+","+0+","+2*(text*16)+")"}}>
+      style={{WebkitTextFillColor:"rgb("+255/(text*2)+","+0+","+2*(text*16)-32+")"}}>
       {text}
     </div>
   );

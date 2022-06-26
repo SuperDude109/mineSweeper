@@ -25,14 +25,14 @@ function mineDataGenerator(numberOfMines=10){
   for(let row = 0 ; row<rows;row++){
     for(let column = 0 ; column<columns;column++){
       let adjacentMines = 0;
-      if(mineLocations.includes((row-1)*rows + column-1)) adjacentMines++;
-      if(mineLocations.includes((row-1)*rows + column-0)) adjacentMines++;
-      if(mineLocations.includes((row-1)*rows + column+1)) adjacentMines++;
-      if(mineLocations.includes(row*rows-0 + column-1)) adjacentMines++;
-      if(mineLocations.includes(row*rows-0 + column+1)) adjacentMines++;
-      if(mineLocations.includes((row+1)*rows + column-1)) adjacentMines++;
-      if(mineLocations.includes((row+1)*rows + column-0)) adjacentMines++;
-      if(mineLocations.includes((row+1)*rows + column+1)) adjacentMines++;
+      if(mineLocations.includes((row-1)*rows + column-1) && ((row-1)*rows + column-1)%columns!==0) adjacentMines++;//tl
+      if(mineLocations.includes((row-1)*rows + column-0)) adjacentMines++;//t
+      if(mineLocations.includes((row-1)*rows + column+1) && ((row-1)*rows + column+1)%columns!==columns-1) adjacentMines++;//tr
+      if(mineLocations.includes(row*rows-0 + column-1) && (row*rows-0 + column-1)%columns!==0) adjacentMines++;//l
+      if(mineLocations.includes(row*rows-0 + column+1) && (row*rows-0 + column+1)%columns!==columns-1) adjacentMines++;//r
+      if(mineLocations.includes((row+1)*rows + column-1) && ((row+1)*rows + column-1)%columns!==0) adjacentMines++;//bl
+      if(mineLocations.includes((row+1)*rows + column-0)) adjacentMines++;//b
+      if(mineLocations.includes((row+1)*rows + column+1) && ((row+1)*rows + column+1)%columns!==columns-1) adjacentMines++;//br
 
       if(mineLocations.includes(row*rows-0 + column-0)) adjacentMines="9";
       spaces.push(adjacentMines)
