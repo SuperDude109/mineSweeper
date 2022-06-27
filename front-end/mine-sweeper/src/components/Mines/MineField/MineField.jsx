@@ -43,12 +43,11 @@ function MineField({columns,rows,mineData}) {
         setGamesEnding(<h1 className="">You LOST!</h1>)
         for(let index =0;index < mineData.length;index++){
           setTimeout(()=>document.getElementById(index).click(),1)//below
-          console.log("trying to click ",index)
+          // console.log("trying to click ",index)
         }
     }
   }
    function mineCallBack(number,funct){//hoisted function
-    if(true){
       if(mineData[number]== 0 ){
         let currentSpot = 0;
         clicked.push(number)
@@ -97,7 +96,7 @@ function MineField({columns,rows,mineData}) {
       }
       
       funct(mineData[number])
-  }
+  
   
 }
 }

@@ -4,33 +4,50 @@ function Mine({txt,func,test,endGame}) {
   let [name,setName] = useState("mine")
   let [isClicked,setIsClicked] = useState(false)
   let [text,setText] = useState(txt)
-  // useEffect(if(text==9),[text])
+  let [style,setStyle]=useState({WebkitTextFillColor:"rgb("+255/(text*2)+","+0+","+2*(text*16)-32+")"})
   return (
     <div
       id={test}onClick={()=>spaceRevealed()}
       className={name} 
       data-testid="mine"
-      style={{WebkitTextFillColor:"rgb("+255/(text*2)+","+0+","+2*(text*16)-32+")"}}>
+      style={style}
+      onWheel={()=>flagged()}
+      >
       {text}
     </div>
   );
 
+
+function flagged(){
+  if(text !=" ")
+  if(text !=="🚩" || text ==="#"){
+      setText("🚩")
+    } else if(text === "🚩"){
+      setText("#")
+    }
+  }
 function spaceRevealed(){//hoisted function
-  // console.log("Mine was clicked")
-  func(test,changeTxt)
-  
+  if(text =="🚩"){
+
+  }else{
+    func(test,changeTxt)  
+  }
 }
 function changeTxt(newText){
   setIsClicked(true)
   if(newText == 9 )
   {
     newText="💣"
+    setName("blown-up")
+    
     endGame(false)
-  }
-  if(newText ==0){
-    newText=""
+  }else if(newText ==0){
+    newText=" "
     setName("blank")
+  }else{
+    setName("space")
   }
+  
   // console.log("We tried to change the txt to ",newText)
   setText(newText)
 }
